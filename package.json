@@ -1,0 +1,26 @@
+{
+  "name": " app-vuejs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open --host=localhost",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "axios": "^1.2.1",
+    "vue": "^3.2.45",
+    "vue-axios": "^3.5.2"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "^8.22.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "prettier": "^2.7.1",
+    "vite": "^4.0.0"
+  }
+}
