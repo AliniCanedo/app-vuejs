@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <template>
   <header>
     <a href="/">Agenda</a>
@@ -16,7 +17,7 @@
           />
         </svg>
       </span>
-      <input type="text" placeholder="Pesquisar..." />
+      <input type="text" v-model="search" placeholder="Pesquisar..." />
     </div>
   </header>
   <main>
@@ -29,7 +30,7 @@
             <th scope="col">E-mail</th>
           </tr>
         </thead>
-        <template v-for="(contact, index) in this.contacts" :key="index">
+        <template v-for="contact in filteredList" :key="contact.id">
           <tbody>
             <tr>
               <th scope="row">{{ contact.id }}</th>
@@ -42,7 +43,7 @@
     </div>
   </main>
 </template>
-
+<!-- eslint-disable prettier/prettier -->
 <script>
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -50,6 +51,7 @@ export default {
   name: "App",
   data() {
     return {
+      search: '',
       contacts: {},
     };
   },
@@ -58,8 +60,17 @@ export default {
       this.contacts = response.data;
     });
   },
+
+  computed: {
+    filteredList() {
+      return this.contacts.filter(item => {
+        return item.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
+  }
 };
 </script>
+<!-- eslint-disable prettier/prettier -->
 <style>
 header {
   background-color: rgb(133, 133, 245);
