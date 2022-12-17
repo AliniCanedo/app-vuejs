@@ -5,4 +5,4 @@ import App from "./App.vue";
 
 import "./assets/main.css";
 
-createApp(App).mount("#app").use(VueAxios, axios);
+createApp(App).use(VueAxios, axios).mount("#app");
